@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Contact, ContactInfo, DeleteButton } from './ContactList.styled';
 
-const ContactList = ({ deleteContact, getFilteredContacts }) => {
-  const filteredContacts = getFilteredContacts();
+const ContactList = ({ deleteContact, contacts }) => {
+  // const filteredContacts = getFilteredContacts();
   return (
     <ul>
-      {filteredContacts.map(({ id, name, number }) => (
+      {contacts.map(({ id, name, number }) => (
         <Contact key={id}>
           <ContactInfo>
             {name}: {number}
@@ -25,7 +25,7 @@ const ContactList = ({ deleteContact, getFilteredContacts }) => {
 };
 ContactList.propTypes = {
   deleteContact: PropTypes.func.isRequired,
-  getFilteredContacts: PropTypes.func.isRequired,
+  contacts: PropTypes.array.isRequired,
 };
 
 export default ContactList;
