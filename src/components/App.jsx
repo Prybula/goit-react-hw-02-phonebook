@@ -54,7 +54,7 @@ class App extends Component {
   };
 
   render() {
-    const visibleContacts = this.getFilteredContacts;
+    const visibleContacts = this.getFilteredContacts();
     return (
       <Section>
         <MainTitle>Phonebook</MainTitle>
@@ -63,7 +63,7 @@ class App extends Component {
         <Filter onChange={this.onFilterChange} value={this.state.filter} />
         <ContactList
           deleteContact={this.deleteContact}
-          getFilteredContacts={visibleContacts}
+          contacts={visibleContacts}
         />
       </Section>
     );
